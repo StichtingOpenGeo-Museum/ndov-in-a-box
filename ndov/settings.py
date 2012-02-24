@@ -1,10 +1,13 @@
+import os.path
 # Django settings for ndov project.
+
+PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
+          # ('Your Name', 'your_email@example.com'),
 )
 
 MANAGERS = ADMINS
@@ -20,7 +23,9 @@ TIME_ZONE = 'Europe/Amsterdam'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'nl-NL'
+LANGUAGE_CODE = 'nl'
+
+LANGUAGES = (('nl', 'Dutch'))
 
 SITE_ID = 1
 
@@ -81,6 +86,13 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.Loader',
 )
 
+
+TEMPLATE_CONTEXT_PROCESSORS = ('django.contrib.auth.context_processors.auth',
+                                'django.core.context_processors.debug',
+                                'django.core.context_processors.media',
+                                'django.core.context_processors.static',
+                                'django.contrib.messages.context_processors.messages')
+
 MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -92,10 +104,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'ndov.urls'
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
-    # Don't forget to use absolute paths, not relative paths.
-    '/home/skinkie/sources/ndov-in-a-box/ndov/django_templates'
+    os.path.join(PROJECT_ROOT, "django_templates"),
 )
 
 INSTALLED_APPS = (
@@ -112,7 +121,6 @@ INSTALLED_APPS = (
     'koppelvlak1',
     'koppelvlak6',
 )
-
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
 # the site admins on every HTTP 500 error.
