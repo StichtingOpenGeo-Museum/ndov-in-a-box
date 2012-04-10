@@ -1,10 +1,12 @@
+import os
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 
 class Koppelvlak1(models.Model):
     dataowner = models.ForeignKey(User)
-    filename = models.FileField('Bestandsnaam', max_length=32, upload_to='/var/www/kv1')
-    pub_date = models.DateTimeField('Upload Datum')
+    filename = models.FileField('Bestandsnaam', max_length=32, upload_to='kv1/')
+    pub_date = models.DateTimeField('Upload Datum', auto_now_add=True)
     valid_from_date = models.DateField('Ingangsdatum')
     
     CHARACTER_ENCODINGS = (
