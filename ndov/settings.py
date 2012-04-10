@@ -106,20 +106,16 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'ndov.urls'
 
 TEMPLATE_DIRS = (
-    os.path.join(PROJECT_ROOT, "django_templates"),
+    os.path.join(PROJECT_ROOT, "project_templates"),
 )
 
 INSTALLED_APPS = (
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    #'django.contrib.sites',
-    #'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
     'django.contrib.admin',
-    # Uncomment the next line to enable admin documentation:
-    # 'django.contrib.admindocs',
+    'registration'
     'koppelvlak1',
     'koppelvlak6',
 )
